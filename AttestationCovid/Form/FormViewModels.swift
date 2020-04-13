@@ -33,7 +33,7 @@ enum FormSection: Int, CaseIterable {
         case date
     }
 
-    case info
-    case motives
     case date
+    case motives
+    case info
 }
