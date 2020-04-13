@@ -20,11 +20,11 @@ enum FormSection: Int, CaseIterable {
     }
 
     enum MotivesContent: Int, CaseIterable {
-        case pro
+        case brief
         case shop
         case health
+        case pro
         case family
-        case brief
         case administrative
         case tig
     }
