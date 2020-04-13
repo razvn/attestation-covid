@@ -31,7 +31,6 @@ enum FormSection: Int, CaseIterable {
 
     enum DateContent: Int, CaseIterable {
         case date
-        case time
     }
 
     case info

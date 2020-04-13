@@ -13,7 +13,6 @@ final class KeyValueCell: UITableViewCell {
         case text
         case birthdate(DateFormatter)
         case date(DateFormatter)
-        case time(DateFormatter)
     }
 
     static let identifier: String = "KeyValueCellIdentifier"
@@ -35,11 +34,7 @@ final class KeyValueCell: UITableViewCell {
         switch inputType {
         case .date(let formatter):
             let date = formatter.date(from: value) ?? Date()
-            valueTextField.inputView = makeDatePickerInputView(mode: .date, date: date)
-            valueTextField.inputAccessoryView = nil
-        case .time(let formatter):
-            let date = formatter.date(from: value) ?? Date()
-            valueTextField.inputView = makeDatePickerInputView(mode: .time, date: date)
+            valueTextField.inputView = makeDatePickerInputView(mode: .dateAndTime, date: date)
             valueTextField.inputAccessoryView = nil
         case .birthdate(let formatter):
             let currentDate = Date()
@@ -134,9 +129,6 @@ extension KeyValueCell {
     @objc private func updateDateTextValue(_ sender: UIDatePicker) {
         switch inputType {
         case .date(let formatter):
-            valueTextField.text = formatter.string(from: sender.date)
-            textValueChanged()
-        case .time(let formatter):
             valueTextField.text = formatter.string(from: sender.date)
             textValueChanged()
         case .birthdate(let formatter):
